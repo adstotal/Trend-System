@@ -31,6 +31,6 @@ def analizar_tendencia(ticker: str, timeframe: str = "5m"):
         "timeframe": timeframe,
         "tendencia": tendencia,
         "grafico_base64": img_data
-    }
+    
 
     }
