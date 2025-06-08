@@ -1,4 +1,12 @@
 from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Puedes restringir luego si quieres
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 from fastapi import FastAPI
 from app.core import obtener_datos, detectar_tendencia
 from app.graficos import graficar_tendencia
