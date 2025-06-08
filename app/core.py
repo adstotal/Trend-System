@@ -1,9 +1,13 @@
 import yfinance as yf
 import pandas as pd
 
-def obtener_datos(ticker: str) -> pd.DataFrame:
-    df = yf.download(ticker, interval="5m", period="1d")
+def obtener_datos(ticker: str, timeframe: str = "5m") -> pd.DataFrame:
+    import yfinance as yf
+    import pandas as pd
+
+    df = yf.download(ticker, interval=timeframe, period="1d")
     return df if not df.empty else None
+
 
 @app.get("/tendencia/{ticker}")
 def analizar_tendencia(ticker: str, timeframe: str = "5m"):
