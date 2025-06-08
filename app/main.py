@@ -18,8 +18,8 @@ app.add_middleware(
 )
 
 @app.get("/tendencia/{ticker}")
-def analizar_tendencia(ticker: str):
-    df = obtener_datos(ticker)
+def analizar_tendencia(ticker: str, timeframe: str = "5m"):
+    df = obtener_datos(ticker, timeframe)  # Asegúrate que tu función lo reciba
     if df is None:
         return JSONResponse(content={"error": "No se pudieron obtener datos."}, status_code=400)
 
@@ -28,6 +28,9 @@ def analizar_tendencia(ticker: str):
 
     return {
         "ticker": ticker,
+        "timeframe": timeframe,
         "tendencia": tendencia,
         "grafico_base64": img_data
+    }
+
     }
