@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from app.core import obtener_datos, detectar_tendencia
 from app.graficos import graficar_tendencia
