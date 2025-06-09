@@ -6,6 +6,18 @@ from fastapi.responses import JSONResponse
 from app.core import obtener_datos, detectar_tendencia
 from app.graficos import graficar_tendencia  # Si tienes esta parte
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # o ["http://localhost:8080"] si usas http.server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # 🔸 Inicializa la app
 app = FastAPI()
 
